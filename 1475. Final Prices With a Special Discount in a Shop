@@ -1,0 +1,19 @@
+class Solution {
+    public int[] finalPrices(int[] prices) {
+        int i;
+        int j;
+        int[] nprice=new int[prices.length];
+        for(i=0; i<prices.length; i++){
+            for(j=i+1; j<prices.length; j++){
+                if(prices[j]<=prices[i]){
+                    nprice[i]+=prices[i]-prices[j];
+                    break;
+                }
+            }
+            if(j==prices.length){
+                nprice[i]=prices[i];
+            }
+        }
+        return nprice;
+    }
+}
