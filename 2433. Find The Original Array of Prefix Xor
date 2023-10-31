@@ -1,0 +1,17 @@
+class Solution {
+    public int[] findArray(int[] pref) {
+        int xor=0;
+        int n=pref.length;
+        int[] nums=new int[n];
+        for(int i=0; i<n; i++){
+            if(i==0){
+                nums[i]=pref[i];
+                xor=pref[i];
+            }else{
+                nums[i]=pref[i] ^ xor;
+                xor^=nums[i];
+            }
+        }
+        return nums;
+    }
+}
