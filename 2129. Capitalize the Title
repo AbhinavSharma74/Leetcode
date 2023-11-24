@@ -1,0 +1,15 @@
+StringBuilder sb=new StringBuilder();
+        String[] caps=title.split("\\s+"); 
+
+        for(String s:caps){
+            if(s.length()<=2){
+                s.toLowerCase();
+                sb.append(s);
+            }else{
+                s=s.toLowerCase();
+                sb.append(Character.toUpperCase(s.charAt(0))).append(s.substring(1));
+            }
+            sb.append(" ");
+        }
+
+        return sb.toString().trim();
