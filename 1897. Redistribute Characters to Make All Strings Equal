@@ -1,0 +1,18 @@
+class Solution {
+    public boolean makeEqual(String[] words) {
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(String word:words){
+            for(int i=0; i<word.length(); i++){
+                char ch=word.charAt(i);
+                map.put(ch,map.getOrDefault(ch,0)+1);
+            }
+        }
+        
+        for(char key:map.keySet()){
+            int freq=map.get(key);
+            if(freq % words.length!=0) return false;
+        }
+
+        return true;
+    }
+}
