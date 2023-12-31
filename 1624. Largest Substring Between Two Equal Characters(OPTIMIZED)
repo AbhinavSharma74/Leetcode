@@ -1,0 +1,12 @@
+class Solution {
+    public int maxLengthBetweenEqualCharacters(String s) {
+        int max=0;
+        for(char c:s.toCharArray()){
+            int dist=(s.lastIndexOf(c)-s.indexOf(c));
+            max=Math.max(dist,max);
+        }
+
+
+        return max-1;
+    }
+}
