@@ -1,0 +1,21 @@
+class Solution {
+    public int minOperations(int[] nums) {
+        
+        int count=0;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i:nums){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+
+        int n=nums.length;
+        for(int key:map.keySet()){
+            int freq=map.get(key);
+            if(map.get(key)==1){
+                return -1;
+            }
+            count+=Math.ceil((double)freq/3);
+        }
+
+        return count;
+    }
+}
