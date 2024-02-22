@@ -1,0 +1,19 @@
+class Solution {
+    public int findJudge(int n, int[][] trust) {
+        int[] keys = new int[n + 1];
+        int[] values = new int[n + 1];
+
+        for (int[] rel : trust) {
+            values[rel[0]]++;
+            keys[rel[1]]++;
+        }
+
+        for(int i=1; i<=n; i++){
+            if(keys[i]==n-1 && values[i]==0){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+}
